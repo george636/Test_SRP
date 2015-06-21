@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <PreferenceCategory 
+        android:title="@string/settings_popup_dialog_category_title">
+        
+        <CheckBoxPreference 
+            android:key="use_popup_dialog_preference_checkbox"
+            android:title="@string/settings_popup_dialog"
+            android:defaultValue="false"
+            android:summary="@string/settings_popup_dialog_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/settings_vibration_category_title">
+
+        <CheckBoxPreference
+            android:key="should_vibrate_preference_checkbox"
+            android:title="@string/settings_vibrate"
+            android:defaultValue="true"
+            android:summary="@string/settings_vibrate_summary" />
+
+        <EditTextPreference
+            android:key="vibrate_pattern_preference"
+            android:dependency="should_vibrate_preference_checkbox"
+            android:title="@string/settings_vibration_pattern"
+            android:defaultValue="@string/settings_vibration_pattern_default"
+            android:summary="@string/settings_vibration_pattern_summary"
+            android:dialogTitle="@string/settings_vibration_pattern_dialog_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/settings_ringtone_category_title">
+
+        <CheckBoxPreference
+            android:key="use_ringtone_preference_checkbox"
+            android:title="@string/settings_ringtone"
+            android:defaultValue="true"
+            android:summary="@string/settings_ringtone_summary" />
+
+        <RingtonePreference
+            android:key="ringtone_style_preference"
+            android:ringtoneType="notification|all"
+            android:dependency="use_ringtone_preference_checkbox"
+            android:title="@string/settings_ringtone_style"
+            android:showSilent="false"
+            android:showDefault="true"
+            android:defaultValue=""
+            android:summary="@string/settings_ringtone_style_summary"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/settings_screen_category_title">
+
+        <CheckBoxPreference
+            android:key="wake_screen_preference_checkbox"
+            android:title="@string/settings_screen"
+            android:defaultValue="true"
+            android:summary="@string/settings_screen_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/settings_led_category_title">
+
+        <CheckBoxPreference
+            android:key="led_preference_checkbox"
+            android:title="@string/settings_led"
+            android:defaultValue="true"
+            android:summary="@string/settings_led_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/settings_snooze_category_title">
+
+        <EditTextPreference
+            android:key="snooze_length_preference"
+            android:inputType="number"
+            android:title="@string/settings_snooze_length"
+            android:defaultValue="@string/settings_snooze_length_default"
+            android:summary="@string/settings_snooze_length_summary"
+            android:dialogTitle="@string/settings_snooze_length_dialog_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/settings_repetition_category_title">
+
+        <CheckBoxPreference
+            android:key="should_repeat_preference_checkbox"
+            android:title="@string/settings_repetition"
+            android:defaultValue="false"
+            android:summary="@string/settings_repetition_summary" />
+
+        <EditTextPreference
+            android:key="repetition_interval_preference"
+            android:dependency="should_repeat_preference_checkbox"
+            android:inputType="number"
+            android:title="@string/settings_repetition_interval"
+            android:defaultValue="@string/settings_repetition_interval_default"
+            android:summary="@string/settings_repetition_interval_summary"
+            android:dialogTitle="@string/settings_repetition_interval_dialog_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/settings_swipe_away_category_title">
+
+        <CheckBoxPreference
+            android:key="swipe_away_preference_checkbox"
+            android:title="@string/settings_swipe_away"
+            android:defaultValue="true"
+            android:summary="@string/settings_swipe_away_summary" />
+
+    </PreferenceCategory>
+    
+</PreferenceScreen>

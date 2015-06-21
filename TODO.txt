@@ -1,0 +1,136 @@
+ANDROID REMINDER APPLICATION
+
+TO DO:
+
+orientation change time change fix
+add more info to FAQ screen, update old info
+
+UNDO functionality
+
+For daily reminders do date comparison, if difference between today and last reminder date > 1 then set next reminder based on todays timestamp instead of reminder’s timestamp. this will prevent reminders going on and on if phone was turned off for few days
+
+
+
+
+variable snooze length
+
+widget
+
+BACKUP
+
+Sync between devices
+
+dark theme
+
+
+
+Expandable list view to group reminder types into:
+- single occurence
+- recurring
+- deactivated
+
+http://www.vogella.com/tutorials/AndroidListView/article.html
+
+
+
+
+custom repeating reminders:
+As of API 19 all repeating alarms are inexact. This causes reminders not to go off at scheduled times. Repeating every X minutes will have to be handled manually.
+
+I IMPLEMENTED A FIX, ADDED FUNCTION IN ALARM MANAGER CALLED setNextAutoRepeat. THIS NEEDS TO BE PROPERLY TESTED. - this will not work, as this will change the actual time of reminder. this will be an issue with recurring reminders. have to come up with something else. FIX removed
+
+
+
+
+
+- TABLET user interface
+
+- SWIPEABLE INTERFACE (2 tabs), maybe also add it to basic version
+
+(- CHOOSE START SCREEN, very optional)
+
+
+
+
+
+
+
+
+
+
+
+
+DONE:
+remove words scheduled reminders in the list activity, free and pro
+MATERIAL DESIGN UPDATE
+
+nicer looking list of reminders with custom views (material?)
+
+MATERIAL:
+add back icon
+add back icon handling in all activities
+add themes
+remove styles
+style all dialogs + custom popup
+set action bar title = new reminder/edit reminder
+set hint Remind me… remove top text
+add shadows
+add in all activities: 
+//OVERRIDE METHODS
+    @Override protected int getLayoutResource() {
+        return R.layout.activity_new_reminder;
+    }
+
+
+- kbd closed after picking date or time
+
+set vibration pattern to 50, 0, if user chose no vibration
+
+remove commented out logs
+
+cancel dialogs when cancel pressed
+
+show info that reminder is inactive
+
+make sure that keyboard opens when coming from list of reminders
+
+add clear top on edit intents in list of reminders
+PostOffice dialogs - material
+reorder buttons, DELETE, EDIT, SNOOZE/CANCEL
+inactive reminders to be greyed out
+
+improve the logic for editing old reminders, keep time, but update date - look at free version
+
+reorder snooze edit delete buttons to make sense in new popup, make order the same in the notifications menu
+- fix focusing and keyboard showing
+DO NOT modify time of old reminder on edit (keep time selected by user)
+
+when creating new reminder, do NOT finish, just start reminders list activity, clear top. around line 190
+weekdays reminder
+weekends reminder
+when any repetition chosen, change Date to "Start on Date" weekdays or weekends chosen, 
+give popup on save if user wants weekdays but start date is on weekend and vice versa
+check why popup brings main app sometimes = checked, does not happen in tests. will have to monitor real app
+new icon type, without plus sign in the notifications = generate as notification icon
+FREE Version, make visible that pro is available
+preference for pop up
+- REPEAT REMINDER ALARM UNTIL ATTENDED
+- LED notification light
+- MAKE SURE THAT REMINDERS ARE RESET WHEN repeating preference changes, this will make sure that they are set either with or without repeating, depending on user preference.
+- Remove info icon and move the list reminders icon a little to the right so it is not hit accidentally
+- SWIPE NOTIFICATION TO DELETE REMINDER
+- ADD QUESTION ICON INSTEAD of INFO icon and it will show help panel explaining recurring reminders
+- RECURRING REMINDER (this will require upgrade to DB - will need to write a functions to handle upgrade so that users won't lose data - this should be much easier with new ReminderManager)
+----  SUPER IMPORTANT!!! TEST WHAT HAPPENS IF YOU SET REMINDER FOR 31ST OF A MONTH AND NEXT MONTH IS ONLY 30 DAYS. ---
+DEBUG: java.lang.RuntimeException: Unable to start receiver com.gadgetjudge.simplestreminder.ReminderAlarmReceiver: java.lang.NumberFormatException: Invalid long: ""
+Close pop up when reminder changed from notification, I added ON RESUME logic in popupdialogactivity but this won’t work as onresume is not called when slide down menu is closed
+Also added cancelling - called in reminder manager, on delete function
+
+
+FOR REPEATABLE:
+- save original timestamp in the db or pass it as a variable 
+- add field in the db that holds the value of frequency
+- figure out what to do with the snooze button, delete, what gets deleted
+- the way they are displayed in the list has to be different
+- option to delete reminder when notification swiped away
+- SOLVE ISSUE WITH LONG PRESS TO DELETE RECURRING

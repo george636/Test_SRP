@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".ListReminders" >
+
+    <include
+        android:id="@+id/toolbar_w_shadow"
+        layout="@layout/toolbar_w_shadow"/>
+
+    <ListView
+        android:id="@+id/listViewScheduledReminders"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@+id/toolbar_w_shadow"
+        android:layout_above="@+id/listNiceMenuHolder"
+        android:fastScrollEnabled="false">
+
+    </ListView>
+
+    <View
+        android:id="@+id/niceMenuShadow"
+        android:layout_width="fill_parent"
+        android:layout_height="3dp"
+        android:layout_above="@+id/listNiceMenuHolder"
+        android:background="@drawable/shadow_up_400"/>
+
+    <RelativeLayout
+        android:id="@+id/listNiceMenuHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:gravity="bottom">
+
+        <ImageButton
+            android:id="@+id/buttonPlusReminder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/menu_create_new_reminder"
+            android:src="@drawable/nice_menu_plus_2"
+            android:paddingLeft="@dimen/small_margin" />
+
+        <ImageButton
+            android:id="@+id/buttonSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/menu_settings"
+            android:src="@drawable/nice_menu_settings"
+            android:paddingRight="@dimen/small_margin" />
+
+        <ImageButton
+            android:id="@+id/buttonHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/buttonSettings"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/menu_help"
+            android:src="@drawable/nice_menu_help" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

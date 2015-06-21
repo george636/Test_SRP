@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.george.reminderpro" >
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.george.reminderpro.NewReminderActivity"
+            android:label="@string/app_name"
+            android:launchMode="standard">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.george.reminderpro.ListRemindersActivity"
+            android:label="@string/title_activity_list_reminders"
+            android:launchMode="standard" >
+        </activity>
+
+        <!-- NOTICE TASK AFFINITY HERE. It is done so that dialogs will not
+        	 bring up other activities stored in memory / history stack  -->
+        <activity
+            android:name="com.george.reminderpro.PopupDialogActivity"
+            android:label="@string/title_activity_popup_dialog"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:taskAffinity="com.george.reminderpro.dialogs"
+            android:excludeFromRecents="true">
+        </activity>
+        <activity
+            android:name="com.george.reminderpro.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+
+        <receiver android:name="com.george.reminderpro.ReminderAlarmReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.george.reminderpro.PopupDialogActivity" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.george.reminderpro.ReminderWorkerReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.gadgetjudge.simplestreminder.DELETE" />
+                <action android:name="com.gadgetjudge.simplestreminder.DEACTIVATE" />
+                <action android:name="com.gadgetjudge.simplestreminder.DISMISS" />
+                <action android:name="com.gadgetjudge.simplestreminder.SNOOZE" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.george.reminderpro.RebootAlarmSetterReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.george.reminderpro.HelpActivity"
+            android:label="@string/title_activity_help" >
+        </activity>
+    </application>
+
+</manifest>

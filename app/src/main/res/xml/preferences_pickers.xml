@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <PreferenceCategory
+        android:title="@string/settings_pickers_category_title">
+
+        <CheckBoxPreference
+            android:key="use_pickers_preference_checkbox"
+            android:title="@string/settings_pickers"
+            android:defaultValue="true"
+            android:summary="@string/settings_pickers_summary" />
+    </PreferenceCategory>
+    
+</PreferenceScreen>

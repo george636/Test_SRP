@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="AppTheme.Base">
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+        <item name="android:windowSharedElementEnterTransition">@android:transition/move</item>
+        <item name="android:windowSharedElementExitTransition">@android:transition/move</item>
+        <item name="android:alertDialogTheme">@style/Theme.AlertDialog</item>
+        <item name="android:timePickerDialogTheme">@style/Theme.Pickers</item>
+        <item name="android:datePickerDialogTheme">@style/Theme.Pickers</item>
+        <item name="android:datePickerMode">spinner</item>
+
+    </style>
+
+    <style name="Theme.AlertDialog" parent="android:Theme.Material.Light.Dialog.Alert">
+        <item name="android:colorPrimary">@color/material_light_blue_500</item>
+        <item name="android:colorPrimaryDark">@color/material_light_blue_700</item>
+        <item name="android:colorAccent">@color/material_light_blue_a400</item>
+    </style>
+
+    <style name="Theme.Pickers" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:colorPrimary">@color/material_light_blue_500</item>
+        <item name="android:colorPrimaryDark">@color/material_light_blue_700</item>
+        <item name="android:colorAccent">@color/material_light_blue_a400</item>
+    </style>
+
+</resources>

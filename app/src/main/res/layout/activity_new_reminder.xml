@@ -1,0 +1,162 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".NewReminder">
+
+    <include
+        android:id="@+id/toolbar_w_shadow"
+        layout="@layout/toolbar_w_shadow"/>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/RelativeLayoutNiceMenuHolder"
+        android:layout_alignParentTop="false"
+        android:layout_below="@+id/toolbar_w_shadow">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/medium_margin">
+
+            <!-- do not use height 0 as this will cause edit text to not expand -->
+            <EditText
+                android:id="@+id/editTextNewReminderTitle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text|textMultiLine|textCapSentences"
+                android:hint="@string/newReminderTitle"
+                android:elegantTextHeight="false">
+
+                <requestFocus />
+            </EditText>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false" >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/small_margin"
+                        android:layout_marginTop="@dimen/large_margin"
+                        android:text="@string/time" />
+
+                    <EditText
+                        android:id="@+id/editTextTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="time"
+                        android:focusable="false"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:baselineAligned="false"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textDateDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/small_margin"
+                        android:layout_marginTop="@dimen/large_margin"
+                        android:text="@string/date" />
+
+                    <EditText
+                        android:id="@+id/editTextDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/medium_margin"
+                        android:ems="10"
+                        android:inputType="date"
+                        android:focusable="false"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spinnerRepeatingFrequency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:entries="@array/repeating_frequency_array"
+                android:focusable="false"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/niceMenuShadow"
+        android:layout_width="fill_parent"
+        android:layout_height="3dp"
+        android:layout_above="@+id/RelativeLayoutNiceMenuHolder"
+        android:background="@drawable/shadow_up_400"/>
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayoutNiceMenuHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:gravity="bottom">
+
+        <ImageButton
+            android:id="@+id/buttonCreateReminder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/create_reminder"
+            android:src="@drawable/nice_menu_ok"
+            android:paddingLeft="@dimen/small_margin" />
+
+        <ImageButton
+            android:id="@+id/buttonHelp2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/buttonSettings"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/menu_help"
+            android:src="@drawable/nice_menu_help" />
+
+        <ImageButton
+            android:id="@+id/buttonListReminders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/buttonHelp2"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/menu_show_reminders"
+            android:src="@drawable/nice_menu_show_reminders" />
+
+        <ImageButton
+            android:id="@+id/buttonSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/menu_settings"
+            android:src="@drawable/nice_menu_settings"
+            android:paddingRight="@dimen/small_margin" />
+    </RelativeLayout>
+
+</RelativeLayout>
